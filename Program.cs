@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FizzBuzz_Csharp
 {
@@ -6,21 +7,40 @@ namespace FizzBuzz_Csharp
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i < 21; i++)
+            for (int i = 1; i < 22; i++)
             {
+                List<string> returnValue = new List<string>();
+                Boolean bangFlag = false;
+                if (i % 7 == 0)
+                {
+                    bangFlag=true;
+                    returnValue.Add("Bang");
+                }
+
                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    Console.WriteLine("FizzBuzz");
-                }else if (i % 3 == 0)
-                {
-                    Console.WriteLine("Fizz");
-                }else if(i % 5 == 0){
-                    Console.WriteLine("Buzz");
+                    returnValue.Add("FizzBuzz");
                 }
-                else
+                else if (i % 3 == 0)
                 {
-                    Console.WriteLine(i);
+                    returnValue.Add("Fizz");
                 }
+                else if (i % 5 == 0)
+                {
+                    returnValue.Add("Buzz");
+                }
+                else if (bangFlag != true)
+                {
+                    returnValue.Add(i.ToString());
+                }
+
+                returnValue.Reverse();
+                String returnString = "";
+                for (int j = 0; j < returnValue.Count; j++)
+                {
+                    returnString = returnString + returnValue[j];
+                }
+                Console.WriteLine(returnString);
             }
         }
     }
