@@ -34,6 +34,11 @@ namespace FizzBuzz_Csharp
                     returnValue.Add(i.ToString());
                 }
 
+                if(i%11==0){
+                    returnValue.Clear();
+                    returnValue.Add("Bong");
+                }
+
                 returnValue.Reverse();
                 String returnString = "";
                 for (int j = 0; j < returnValue.Count; j++)
